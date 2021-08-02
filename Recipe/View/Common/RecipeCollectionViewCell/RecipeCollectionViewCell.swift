@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import Nuke
 
-class RecipeCollectionViewCell: UICollectionViewCell, UICollectionViewCellAutoHeight {
+class RecipeCollectionViewCell: UICollectionViewCell {
     public var disposeBag = DisposeBag()
     public var favoriteButton: UIButton = {
         let button = UIButton()
@@ -30,7 +30,7 @@ class RecipeCollectionViewCell: UICollectionViewCell, UICollectionViewCellAutoHe
     private var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 18)
+        label.font = .systemFont(ofSize: 14, weight: .bold)
         label.textColor = .black
         label.numberOfLines = 2
         return label
@@ -54,22 +54,33 @@ class RecipeCollectionViewCell: UICollectionViewCell, UICollectionViewCellAutoHe
         super.init(frame: frame)
         
         contentView.addSubview(thumbnailImageView)
-        thumbnailImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0).isActive = true
-        thumbnailImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0).isActive = true
-        thumbnailImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0).isActive = true
+        thumbnailImageView.anchor(
+            top: contentView.topAnchor,
+            left: contentView.leftAnchor,
+            right: contentView.rightAnchor
+        )
         thumbnailImageView.setRatio(height: 1, width: 1)
         
         contentView.addSubview(favoriteButton)
-        favoriteButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12).isActive = true
-        favoriteButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12).isActive = true
-        favoriteButton.setHeight(35)
-        favoriteButton.setWidth(35)
+        favoriteButton.anchor(
+            top: contentView.topAnchor,
+            right: contentView.rightAnchor,
+            paddingTop: 12,
+            paddingRight: 12,
+            width: 35,
+            height: 35
+        )
         
         contentView.addSubview(titleLabel)
-        titleLabel.topAnchor.constraint(equalTo: thumbnailImageView.bottomAnchor, constant: 0).isActive = true
-        titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0).isActive = true
-        titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0).isActive = true
-        titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0).isActive = true
+        titleLabel.anchor(
+            top: thumbnailImageView.bottomAnchor,
+            left: contentView.leftAnchor,
+            bottom: contentView.bottomAnchor,
+            right: contentView.rightAnchor,
+            paddingTop: 8,
+            paddingLeft: 4,
+            paddingRight: 4
+        )
     }
     
     required init?(coder: NSCoder) {
@@ -80,6 +91,7 @@ class RecipeCollectionViewCell: UICollectionViewCell, UICollectionViewCellAutoHe
         if let thumbnail = URL(string: recipe.thumbnail) {
             Nuke.loadImage(with: ImageRequest(url: thumbnail), into: thumbnailImageView)
             titleLabel.text = recipe.title
+            titleLabel.addLineSpacing(spacingValue: 2)
             isFavorited = recipe.isFavorited
         }
     }

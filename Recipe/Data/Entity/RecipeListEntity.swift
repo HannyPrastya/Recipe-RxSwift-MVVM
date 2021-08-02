@@ -7,20 +7,20 @@
 
 import Foundation
 
-// MARK: - RecipeListResponse
-struct RecipeListResponse: Codable {
+// MARK: - RecipeListEntity
+struct RecipeListEntity: Codable, Equatable {
     let data: [RecipeEntity]
 }
 
 // MARK: - RecipeEntity
-struct RecipeEntity: Codable {
+struct RecipeEntity: Codable, Equatable {
     let id: String?
     let type: TypeEnum?
     let attributes: Attributes?
 }
 
 // MARK: - Attributes
-struct Attributes: Codable {
+struct Attributes: Codable, Equatable {
     let title: String?
     let thumbnailSquareURL: String?
 

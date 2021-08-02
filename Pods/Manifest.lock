@@ -1,0 +1,70 @@
+PODS:
+  - Alamofire (5.4.3)
+  - Moya/Core (14.0.0):
+    - Alamofire (~> 5.0)
+  - Moya/RxSwift (14.0.0):
+    - Moya/Core
+    - RxSwift (~> 5.0)
+  - Nimble (9.2.0)
+  - Nuke (9.5.0)
+  - Quick (4.0.0)
+  - RxBlocking (5.1.1):
+    - RxSwift (~> 5)
+  - RxCocoa (5.1.1):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxGesture (3.0.2):
+    - RxCocoa (~> 5.1)
+    - RxSwift (~> 5.1)
+  - RxRelay (5.1.1):
+    - RxSwift (~> 5)
+  - RxSwift (5.1.2)
+  - RxTest (5.1.2):
+    - RxSwift (~> 5)
+  - SwiftLint (0.43.1)
+
+DEPENDENCIES:
+  - Alamofire
+  - Moya/RxSwift
+  - Nimble
+  - Nuke
+  - Quick
+  - RxBlocking
+  - RxCocoa
+  - RxGesture
+  - RxSwift
+  - RxTest
+  - SwiftLint
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Moya
+    - Nimble
+    - Nuke
+    - Quick
+    - RxBlocking
+    - RxCocoa
+    - RxGesture
+    - RxRelay
+    - RxSwift
+    - RxTest
+    - SwiftLint
+
+SPEC CHECKSUMS:
+  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
+  Nimble: 4f4a345c80b503b3ea13606a4f98405974ee4d0b
+  Nuke: 6f400a4ea957e09149ec335a3c6acdcc814d89e4
+  Quick: 6473349e43b9271a8d43839d9ba1c442ed1b7ac4
+  RxBlocking: 5f700a78cad61ce253ebd37c9a39b5ccc76477b4
+  RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
+  RxGesture: d6bd7447ca3a596c7a9702a6a2b6a2bb5d8bae54
+  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
+  RxSwift: 1e2e1f9570186967f617e49128ed26ccf1bafc8e
+  RxTest: 274549b747dca56f47c52c8991ec5cf797ecfe40
+  SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
+
+PODFILE CHECKSUM: 457fc19bbb478ecdd925590c9f429e6f7938d14e
+
+COCOAPODS: 1.10.1

@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+enum ProcessResult<T>{
+    case success(data: T)
+    case failure(message: String?)
+}

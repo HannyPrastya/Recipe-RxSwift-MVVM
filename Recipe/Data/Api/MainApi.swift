@@ -35,9 +35,4 @@ extension MainApi {
             "Content-Type": "application/json"
         ]
     }
-    
-    
-    var sampleData: Data {
-        return "{}".data(using: .utf8)!
-    }
 }

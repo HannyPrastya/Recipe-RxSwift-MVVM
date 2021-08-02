@@ -34,4 +34,11 @@ extension RecipeApiDefinition: TargetType, MainApi {
             return .requestPlain
         }
     }
+    
+    var sampleData: Data {
+        switch self {
+        case .getList:
+            return "{\"data\":[{\"id\":\"1\",\"type\":\"videos\",\"attributes\":{\"title\":\"test\",\"thumbnail-square-url\":\"image\"}}]}".data(using: .utf8)!
+        }
+    }
 }

@@ -6,27 +6,28 @@
 //
 
 import XCTest
+import Quick
+import Nimble
+import Moya
+import RxBlocking
+@testable import Recipe
 
-class RecipeRepositoryTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+class RecipeRepositoryTests: QuickSpec {
+    override func spec() {
+        describe("Get recipes") {
+            it("will get one recipe with success response") {
+                let recipeRepository = RecipeRepository(provider: MoyaProvider<RecipeApiDefinition>(stubClosure: MoyaProvider.immediatelyStub))
+                let recipes: RecipeListEntity = RecipeListEntity(data: [RecipeEntity(id: "1", type: .videos, attributes: Attributes(title: "test", thumbnailSquareURL: "image"))])
+                let result: Result<RecipeListEntity, ApiErrorType> = try! recipeRepository.getRecipeList().toBlocking().first()!
+                switch result {
+                    case .success(let response):
+                        expect(response).to(equal(recipes))
+                    break
+                    case .failure(_):
+                    break
+                }
+            }
         }
     }
-
 }
+
